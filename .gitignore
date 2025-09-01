@@ -122,4 +122,4 @@ venv.bak/
 
 # mypy
 .mypy_cache/
-
+readme.txt
