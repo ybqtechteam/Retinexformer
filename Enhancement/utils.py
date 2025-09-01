@@ -6,7 +6,7 @@
 
 import numpy as np
 import os
-import cv2
+import cv2, torch
 import math
 from pdb import set_trace as stx
 
@@ -131,3 +131,8 @@ def my_summary(test_model, H = 256, W = 256, C = 3, N = 1):
     n_param = sum([p.nelement() for p in model.parameters()])
     print(f'GMac:{flops.total()/(1024*1024*1024)}')
     print(f'Params:{n_param}')
+
+if __name__ == '__main__':
+    from basicsr.models.archs.RetinexFormer_arch import RetinexFormer
+    from fvcore.nn import FlopCountAnalysis
+    my_summary(RetinexFormer(n_feat=40,stage=1,num_blocks=[1,2,2]), 256, 256, 3, 1) # dettagli del modello presi dal file yml corrispondente

@@ -224,6 +224,18 @@ else:
             img = np.float32(utils.load_img(inp_path)) / 255.
             target = np.float32(utils.load_img(tar_path)) / 255.
 
+            # # Resize
+            # w, h = 400, 600
+
+            # img = utils.load_img(inp_path)
+            # img = cv2.resize(img, (h, w))
+            # img = np.float32(img) / 255.
+
+            # target = utils.load_img(tar_path)
+            # target = cv2.resize(target, (h, w))
+            # target = np.float32(target) / 255.
+
+
             img = torch.from_numpy(img).permute(2, 0, 1)
             input_ = img.unsqueeze(0).cuda()
 
